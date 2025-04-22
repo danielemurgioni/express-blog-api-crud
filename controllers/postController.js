@@ -34,7 +34,17 @@ function modify(req, res){
 
 // definisco la funzione destroy
 function destroy(req, res){
-    res.send(`Cancellazione del post: ${req.params.id}`)
+    //recupero l'id dall'url
+    const id = parseInt(req.params.id);
+    //cerchiamo il post tramite l'id
+    const post = postsData.find(post => post.id === id);
+    //elimino quel post
+    postsData.splice(postsData.indexOf(post), 1);
+    
+    //mostro quale l'id del post cancellato
+    res.send(`Cancellazione del post: ${req.params.id}`);
+    //mostro la lista aggiornata nel terminale
+    console.log(postsData);
 };
 
 //esporto i metodi come proprietà di un oggetto
