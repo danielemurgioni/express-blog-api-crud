@@ -1,6 +1,9 @@
+//importo i data dei posts
+const postsData = require("../data/posts_D.js");
+
 // definisco la funzione index
 function index(req, res){
-    res.send("Lista dei post")
+    res.json(postsData);
 };
 
 // definisco la funzione show
