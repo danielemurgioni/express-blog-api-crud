@@ -3,12 +3,18 @@ const postsData = require("../data/posts_D.js");
 
 // definisco la funzione index
 function index(req, res){
+    //restituisco sottoforma di file json
     res.json(postsData);
 };
 
 // definisco la funzione show
 function show(req, res){
-    res.send(`Dettaglio del post: ${req.params.id}`)
+    //recupero l'id dall'url
+    const id = parseInt(req.params.id);
+    //cerchiamo il post tramite l'id
+    const post = postsData.find(post => post.id === id);
+    //restituisco sottoforma di file json
+    res.json(post);
 };
 
 // definisco la funzione store
