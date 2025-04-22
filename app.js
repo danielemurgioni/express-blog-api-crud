@@ -5,8 +5,8 @@ const app = express();
 //assegno la porta
 const port = 3000;
 
-//importo e imposto la rotta per le operazioni CRUD di post
-const postsRouter = require("./routers/posts");
+//importo e imposto la rotta per le operazioni CRUD di routers/posts
+const postsRouter = require("./routers/posts_R.js");
 app.use("/posts", postsRouter);
 
 // rotta madre
