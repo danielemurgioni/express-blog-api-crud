@@ -41,10 +41,11 @@ function destroy(req, res){
     //elimino quel post
     postsData.splice(postsData.indexOf(post), 1);
     
-    //mostro quale l'id del post cancellato
-    res.send(`Cancellazione del post: ${req.params.id}`);
     //mostro la lista aggiornata nel terminale
     console.log(postsData);
+
+    //controlla se il post è ancora presente
+    res.sendStatus(204);
 };
 
 //esporto i metodi come proprietà di un oggetto
