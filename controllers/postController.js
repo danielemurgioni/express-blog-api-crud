@@ -22,8 +22,6 @@ function store(req, res){
     // visualizzo sul terminale il contenuto del nuovo post
     console.log(req.body)
 
-    res.send("Inserimento nuovo post")
-
     //Creiamo un nuovo id incrementando l'ultimo id
     const newID = postsData[postsData.length - 1].id + 1;
     console.log(newID);
@@ -41,6 +39,11 @@ function store(req, res){
     postsData.push(newPost);
     // verifico nel terminale
     console.log(postsData);
+
+    //status per il post creato
+    res.status(201);
+    //mostro il nuovo post su postman in formato json
+    res.json(newPost);
 };
 
 // definisco la funzione update
