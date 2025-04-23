@@ -19,6 +19,9 @@ function show(req, res){
 
 // definisco la funzione store
 function store(req, res){
+    // visualizzo sul terminale il contenuto del nuovo post
+    console.log(req.body)
+
     res.send("Inserimento nuovo post")
 };
 
