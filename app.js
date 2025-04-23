@@ -5,6 +5,9 @@ const app = express();
 //assegno la porta
 const port = 3000;
 
+// indico ad express di trattare i body di delle richieste come json
+app.use(express.json());
+
 //importo e imposto la rotta per le operazioni CRUD di routers/posts
 const postsRouter = require("./routers/posts_R.js");
 app.use("/posts", postsRouter);
