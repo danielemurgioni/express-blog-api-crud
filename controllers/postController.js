@@ -48,7 +48,20 @@ function store(req, res){
 
 // definisco la funzione update
 function update(req, res){
-    res.send(`Modifica totale del post: ${req.params.id}`)
+    //recupero l'id dall'url
+    const id = parseInt(req.params.id);
+
+    //cerco l'id del post da aggiornare
+    const post = postsData.find(post => post.id === id);
+
+    //aggiornamento del post
+    post.title = req.body.title;
+    post.content = req.body.content;
+    post.image = req.body.image;
+    post.tags = req.body.tags;
+
+    //mostro il post modificato su postman in formato json
+    res.json(post);
 };
 
 // definisco la funzione modify
