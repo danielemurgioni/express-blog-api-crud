@@ -23,6 +23,24 @@ function store(req, res){
     console.log(req.body)
 
     res.send("Inserimento nuovo post")
+
+    //Creiamo un nuovo id incrementando l'ultimo id
+    const newID = postsData[postsData.length - 1].id + 1;
+    console.log(newID);
+
+    //Creiamo un nuovo oggetto
+    const newPost = {
+        id: newID,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    };
+
+    //aggiungiamo il nuovo post all'array di oggetti postsData
+    postsData.push(newPost);
+    // verifico nel terminale
+    console.log(postsData);
 };
 
 // definisco la funzione update
