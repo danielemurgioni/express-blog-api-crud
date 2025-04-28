@@ -11,11 +11,17 @@ app.use(express.json());
 //asset statico
 app.use(express.static("public"));
 
-// importo la funzione middleware per gli errori
-const errorsHandler = require('./middlewares/errorsHandler.js');
+// importo le funzioni middleware
 
-// utilizzo la funzione middleware per gli errori
+// middleware per gli errori
+const errorsHandler = require('./middlewares/errorsHandler.js');
+// middleware per le rotte non trovate
+const notFound = require('./middlewares/notFound.js');
+
+// utilizzo le funzioni middleware
 app.use(errorsHandler);
+
+app.use(notFound);
 
 //importo e imposto la rotta per le operazioni CRUD di routers/posts
 const postsRouter = require("./routers/posts_R.js");
