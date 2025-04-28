@@ -6,4 +6,4 @@ function errorsHandler (err, req, res, next){
     });
 }
 
-module.export = errorsHandler;
+module.exports = errorsHandler;

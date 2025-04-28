@@ -8,6 +8,15 @@ const port = 3000;
 // indico ad express di trattare i body di delle richieste come json
 app.use(express.json());
 
+//asset statico
+app.use(express.static("public"));
+
+// importo la funzione middleware per gli errori
+const errorsHandler = require('./middlewares/errorsHandler.js');
+
+// utilizzo la funzione middleware per gli errori
+app.use(errorsHandler);
+
 //importo e imposto la rotta per le operazioni CRUD di routers/posts
 const postsRouter = require("./routers/posts_R.js");
 app.use("/posts", postsRouter);
@@ -16,9 +25,6 @@ app.use("/posts", postsRouter);
 app.get("/", (req, res)=>{
     res.send("Server del mio blog");
 });
-
-//asset statico
-app.use(express.static("public"));
 
 //il server rimane in ascolto
 app.listen(port, ()=>{
